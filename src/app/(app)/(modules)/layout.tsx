@@ -1,6 +1,9 @@
 import { Sidebar } from '@/components/layout/Sidebar'
 import { MobileNav } from '@/components/layout/MobileNav'
 
+// All module pages require authentication — never statically pre-render
+export const dynamic = 'force-dynamic'
+
 export default function ModulesLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen bg-ink">

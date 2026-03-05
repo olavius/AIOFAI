@@ -8,7 +8,7 @@ export const maxDuration = 30
 
 export async function POST(req: NextRequest) {
   try {
-    const { userId } = auth()
+    const { userId } = await auth()
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
       const jsonData = XLSX.utils.sheet_to_json<Record<string, unknown>>(worksheet, {
         header: 1,
         defval: null,
-      }) as unknown[][]
+      }) as unknown as unknown[][]
 
       if (jsonData.length === 0) {
         return { name, headers: [], rows: [], rowCount: 0 }
