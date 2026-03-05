@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0D1117;
+  --surface: #161B22;
+  --panel: #1C2331;
+  --forest: #152F2C;
+  --forest-mid: #204E4C;
+  --forest-bright: #2D7A72;
+  --gold: #CDC09D;
+  --cream: #FBFAF6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--ink);
+  color: var(--cream);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--panel);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--forest-mid);
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-panel rounded-xl p-6;
+  }
+
+  .card-hover {
+    @apply bg-surface border border-panel rounded-xl p-6 transition-all duration-200 hover:border-forestMid hover:shadow-lg hover:shadow-forest/20;
+  }
+
+  .btn-primary {
+    @apply bg-forestBright hover:bg-forestMid text-cream font-medium px-5 py-2.5 rounded-lg transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-panel hover:bg-forestMid border border-forestMid text-cream font-medium px-5 py-2.5 rounded-lg transition-all duration-150 flex items-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply text-gold hover:text-cream hover:bg-panel px-4 py-2 rounded-lg transition-all duration-150 flex items-center gap-2;
+  }
+
+  .input-field {
+    @apply w-full bg-panel border border-panel focus:border-forestMid text-cream placeholder:text-cream/40 rounded-lg px-4 py-3 outline-none transition-colors duration-150 font-sans;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gold mb-2;
+  }
+
+  .section-title {
+    @apply text-xl font-semibold text-cream mb-1;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-cream/60 mb-6;
+  }
+
+  .result-card {
+    @apply bg-forest border border-forestMid rounded-xl p-6 animate-fade-in;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-forestMid text-gold;
+  }
+
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-panel border-t-forestBright;
+  }
+
+  .prose-dark {
+    @apply text-cream/90;
+  }
+
+  .prose-dark h1,
+  .prose-dark h2,
+  .prose-dark h3 {
+    @apply text-cream font-semibold;
+  }
+
+  .prose-dark h2 {
+    @apply text-lg mt-6 mb-3;
+  }
+
+  .prose-dark h3 {
+    @apply text-base mt-4 mb-2 text-gold;
+  }
+
+  .prose-dark p {
+    @apply mb-3 leading-relaxed;
+  }
+
+  .prose-dark ul,
+  .prose-dark ol {
+    @apply mb-3 pl-5;
+  }
+
+  .prose-dark li {
+    @apply mb-1.5;
+  }
+
+  .prose-dark ul > li {
+    @apply list-disc;
+  }
+
+  .prose-dark ol > li {
+    @apply list-decimal;
+  }
+
+  .prose-dark code {
+    @apply font-mono text-sm bg-ink px-1.5 py-0.5 rounded text-forestBright;
+  }
+
+  .prose-dark pre {
+    @apply bg-ink rounded-lg p-4 overflow-x-auto my-3;
+  }
+
+  .prose-dark pre code {
+    @apply bg-transparent px-0 py-0;
+  }
+
+  .prose-dark strong {
+    @apply font-semibold text-cream;
+  }
+
+  .prose-dark blockquote {
+    @apply border-l-4 border-forestBright pl-4 italic text-cream/70;
+  }
+}
